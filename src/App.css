@@ -1,0 +1,90 @@
+body {
+    text-align: center;
+}
+
+/* Nav bar start */
+.nav_bar-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(238, 159, 48);
+    
+  }
+  
+  li {
+    float: right;
+  }
+  
+  .navbar__link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  
+  .navbar__link:hover {
+    background-color: rgb(242, 3, 3);
+  }
+
+/* Nav bar end */
+
+.parent-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 90vw;
+}
+
+/* Article card start */
+
+.grid-title {
+    grid-area: title;
+    justify-content: center;
+    align-self: center;
+}
+
+.grid-topic {
+    grid-area: topic;
+    justify-content: center; 
+    align-self: center;   
+}
+
+.grid-author {
+    grid-area: author;
+    justify-content: center;
+    align-self: center;
+}
+
+.grid-comment {
+    grid-area: comment;
+    justify-content: center;
+    align-self: center;
+}
+
+.grid-date {
+    grid-area: date;
+    justify-content: center;
+    align-self: center;
+}
+
+.grid-container {
+    background-color: rgb(238, 159, 48);
+    display: grid;
+    width: 250px;
+    height: 250px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "title title"
+      "topic author "
+      "date comment";
+  }
+
+  /* Article card end */
+
+  
