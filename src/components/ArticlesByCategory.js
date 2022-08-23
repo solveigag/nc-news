@@ -5,14 +5,14 @@ import Queries from "./ArticleQueryOptions";
 import AllArticlesCard from "./AllArticlesCard";
 
 const ArticlesByCategory =() => {
-    const { topic_slug } = useParams();
+    const { topic } = useParams();
     const [articles, setArticles] = useState([]);
     
         useEffect(()=> {
-            getAllArticles(topic_slug).then(({allArticles}) => {
+            getAllArticles(topic).then(({allArticles}) => {
                 setArticles(allArticles)
             })
-    }, [topic_slug])
+    }, [topic])
 
     return <div>
         <nav>

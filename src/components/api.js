@@ -1,6 +1,5 @@
 export const getAllArticles = (topic) => {
   if (topic) {
-    //console.log(topic)
     return fetch(`https://solveiga-nc-news-be.herokuapp.com/api/articles?topic=${topic}`).then(
       (res) => {
        return res.json();

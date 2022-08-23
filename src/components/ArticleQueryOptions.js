@@ -18,10 +18,10 @@ const Queries = () => {
 
   const handleCategory = (event) => {
     const category = event.target.value;
-    if (category === "") {
+    if (category === "") {      
       navigate("/");
     } else {
-      navigate(`/${category}`);
+      navigate(`/articles/${category}`);
     }
   };
 
