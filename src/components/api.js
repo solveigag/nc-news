@@ -21,3 +21,11 @@ export const getAllArticles = (topic) => {
       }
     );
   }
+
+  export const getArticleById = (article_id) => {
+    return fetch(`https://solveiga-nc-news-be.herokuapp.com/api/articles/${article_id}`).then(
+      (res) => {
+        return res.json();
+      }
+    );
+  }

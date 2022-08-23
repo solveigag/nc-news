@@ -18,11 +18,11 @@ const ArticlesByCategory =() => {
         <nav>
             <Queries />
         </nav>
-        <ul className="parent-grid">
+        <section className="parent-grid">
             {articles.map(article => {
-              return <article key={article.article_id}>< AllArticlesCard article={article}/></article>
+              return < AllArticlesCard article={article} key={article.article_id}/>
             })}
-        </ul>
+        </section>
     </div>
 }
 
