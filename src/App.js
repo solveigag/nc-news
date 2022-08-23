@@ -4,6 +4,7 @@ import AllArticles from './components/AllArticles';
 import SingleArticle from './components/SingleArticle';
 import Users from './components/Users';
 import './App.css';
+import ArticlesByCategory from './components/ArticlesByCategory';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     </div>
     <Routes>
       <Route path="/" element={ <AllArticles />}/>
+      <Route path='/:topic_slug' element={<ArticlesByCategory/>}/>
       <Route path="/:article_id" element={ <SingleArticle />}/>
       <Route path="/sign-in" element={ <Users/> }/>
     </Routes>
