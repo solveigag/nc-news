@@ -15,7 +15,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <ArticlesByCategory />}/>
       <Route path="/articles/:topic" element={<ArticlesByCategory/>}/>
-      <Route path="article/:article_id" element={ <SingleArticle />}/>
+      <Route path="/article/:article_id" element={ <SingleArticle />}/>
       <Route path="/sign-in" element={ <Users/> }/>
     </Routes>
   </BrowserRouter>
