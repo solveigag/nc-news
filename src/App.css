@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color:  rgb(255, 224, 181);
 }
 
 /* Nav bar start */
@@ -34,13 +35,13 @@ body {
 
 /* Nav bar end */
 
-.parent-grid {
-  
+.parent-grid {  
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    width: 90vw;
+    margin: auto;
+    padding: 10px;
 }
 
 /* Article card start */
@@ -75,17 +76,24 @@ body {
     align-self: center;
 }
 
+.grid-votes {
+  grid-area: votes;
+  justify-content: center;
+  align-self: center;
+}
+
 .grid-container {
     background-color: rgb(238, 159, 48);
     display: grid;
     width: 250px;
-    height: 250px;
+    height: 300px;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
     grid-template-areas: 
       "title title"
       "topic author "
-      "date comment";
+      "votes comment"
+      "date date";
   }
 
   /* Article card end */
@@ -103,4 +111,12 @@ body {
 .green-border {
   border: 2px solid green;
 }
-  
+
+.Link {
+  text-decoration: none;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+
+
