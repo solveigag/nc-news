@@ -118,5 +118,52 @@ body {
   color: aliceblue;
 }
 
+/* Comment Layout */
+
+.comments-parent-grid {  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin: auto;
+  width: 80vw;
+}
+
+.comments-grid-author {
+  grid-area: author;
+  justify-content: center;
+  align-self: center;
+}
+
+.comments-grid-body {
+  grid-area: body;
+  justify-content: center;
+  align-self: center;
+}
+
+.comments-grid-date {
+  grid-area: date;
+  justify-content: center;
+  align-self: center;
+}
+
+.comments-grid-votes {
+grid-area: votes;
+justify-content: center;
+align-self: center;
+}
+
+.comments-grid-container {
+  background-color: rgb(238, 159, 48);
+  display: grid;
+  
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "author date votes"
+    "body body body";
+}
+
+
 
 
