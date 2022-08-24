@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, patchVotes } from "./api";
+import AllCommentsByArticleId from "./AllCommentsByArticleId";
+import { getArticleById, getCommnetsByArticleId, patchVotes } from "./api";
+import ExpandableComments from "./ExpandableComments";
+import SingleArticleCard from "./SingleArticleCard";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -9,6 +12,7 @@ const SingleArticle = () => {
   const [err, setErr] = useState(null);
   const [disableUpVote, setDisableUpVote] = useState(false);
   const [disableDownVote, setDisableDownVote] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     getArticleById(article_id).then(({ article }) => {
@@ -17,9 +21,12 @@ const SingleArticle = () => {
       setArticle(articleCopy);
       setVotes(articleCopy.votes);
     });
+    getCommnetsByArticleId(article_id).then(({allComments}) => {
+      setComments(allComments)
+    })
   }, [article_id]);
 
-  const handleClick = (event) => {
+  const handleVoteClick = (event) => {
     let vote = parseInt(event.target.value);
     setVotes((currVotes) => currVotes + vote);
     setErr(null);
@@ -38,27 +45,23 @@ const SingleArticle = () => {
 
   if (err) return <p>{err}</p>;
 
-  return (
-    <section>
-      <h2>{article.title}</h2>
-      <ul className="single-article-container">
-        <p>Author: {article.author}</p>
-        <p>Published: {article.created_at}</p>
-        <p>Topic: {article.topic}</p>
-        <p>Votes: {votes}</p>
-       
-        <button disabled={disableUpVote} value={1} onClick={handleClick}>
-          👍
-        </button>
-
-        <button disabled={disableDownVote} value={-1} onClick={handleClick}>
-          👎
-        </button>
-      </ul>
-      <p>{article.body}</p>
-      <p>Comments: {article.comment_count}</p>
+  return <section>
+    <div>
+    <SingleArticleCard 
+      article={article}
+      votes={votes}
+      disableUpVote={disableUpVote}
+      disableDownVote={disableDownVote}
+      handleVoteClick={handleVoteClick}
+    />
+  </div>
+    <ExpandableComments comment_count={article.comment_count}>
+    <div className="comments-parent-grid">{comments.map(comment => {
+      return <AllCommentsByArticleId comment={comment} key={comment.comment_id}/>
+    })}
+  </div>
+    </ExpandableComments>
     </section>
-  );
 };
 
 export default SingleArticle;
