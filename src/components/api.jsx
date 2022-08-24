@@ -50,3 +50,11 @@ export const getCommnetsByArticleId = (article_id) => {
     return res.json();
   });
 }
+
+export const getUsers = () => {
+  return fetch(
+    `https://solveiga-nc-news-be.herokuapp.com/api/users`
+  ).then((res) => {
+    return res.json();
+  });
+}
