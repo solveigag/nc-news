@@ -62,7 +62,8 @@ const SingleArticle = () => {
     let postComment = { username: event.target.name, body: newComment };
     postNewComment(article_id, postComment)
       .then(() => {
-        setNewComment("");
+        setErr(null);
+        setNewComment("");        
         getCommnetsByArticleId(article_id).then(({ allComments }) =>
           setComments(allComments)
         );
