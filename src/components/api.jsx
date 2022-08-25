@@ -58,3 +58,14 @@ export const getUsers = () => {
     return res.json();
   });
 }
+
+export const postNewComment = (article_id, comment) => {
+  return axios
+    .post(
+      `https://solveiga-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`, comment
+    )
+    .then((res) => {
+      console.log(res)
+      return res;
+    });
+}
