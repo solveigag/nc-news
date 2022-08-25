@@ -17,6 +17,7 @@ body {
   
   li {
     float: right;
+    list-style-type: none;
   }
   
   .navbar__link {
@@ -165,5 +166,12 @@ align-self: center;
 }
 
 
+img {
+  border-radius: 50%;
+  height: 3rem;
+  width: rem;
+}
 
-
+.error {
+  background-color: red;
+} 

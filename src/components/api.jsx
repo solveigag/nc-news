@@ -50,3 +50,22 @@ export const getCommnetsByArticleId = (article_id) => {
     return res.json();
   });
 }
+
+export const getUsers = () => {
+  return fetch(
+    `https://solveiga-nc-news-be.herokuapp.com/api/users`
+  ).then((res) => {
+    return res.json();
+  });
+}
+
+export const postNewComment = (article_id, comment) => {
+  return axios
+    .post(
+      `https://solveiga-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`, comment
+    )
+    .then((res) => {
+      console.log(res)
+      return res;
+    });
+}
