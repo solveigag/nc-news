@@ -4,26 +4,31 @@ import { getAllArticles } from "./api";
 import Queries from "./ArticleQueryOptions";
 import AllArticlesCard from "./AllArticlesCard";
 
-const ArticlesByCategory =() => {
-    const { topic } = useParams();
-    const [articles, setArticles] = useState([]);
-    
-        useEffect(()=> {
-            getAllArticles(topic).then(({allArticles}) => {
-                setArticles(allArticles)
-            })
-    }, [topic])
+const ArticlesByCategory = () => {
+  const { topic } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [orderBy, setOrderBy] = useState("desc");
 
-    return <div>
-        <nav>
-            <Queries />
-        </nav>
-        <section className="parent-grid">
-            {articles.map(article => {
-              return < AllArticlesCard article={article} key={article.article_id}/>
-            })}
-        </section>
+  useEffect(() => {
+    getAllArticles(topic, sortBy, orderBy).then(({ allArticles }) => {
+      setArticles(allArticles);
+    });
+  }, [topic, sortBy, orderBy]);
+
+  console.log(sortBy, orderBy, "In Articles")
+  return (
+    <div>
+      <nav>
+        <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} />
+      </nav>
+      <section className="parent-grid">
+        {articles.map((article) => {
+          return <AllArticlesCard article={article} key={article.article_id} />;
+        })}
+      </section>
     </div>
-}
+  );
+};
 
-export default ArticlesByCategory
+export default ArticlesByCategory;

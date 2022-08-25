@@ -1,14 +1,16 @@
 import axios from "axios";
 
-export const getAllArticles = (topic) => {
+export const getAllArticles = (topic, sortBy, orderBy) => {
+
+ 
   if (topic) {
     return fetch(
-      `https://solveiga-nc-news-be.herokuapp.com/api/articles?topic=${topic}`
+      `https://solveiga-nc-news-be.herokuapp.com/api/articles?topic=${topic}&sort_by=${sortBy}&order_by=${orderBy}`
     ).then((res) => {
       return res.json();
     });
   } else {
-    return fetch("https://solveiga-nc-news-be.herokuapp.com/api/articles").then(
+    return fetch(`https://solveiga-nc-news-be.herokuapp.com/api/articles?sort_by=${sortBy}&order_by=${orderBy}`).then(
       (res) => {
         return res.json();
       }
