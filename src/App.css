@@ -12,6 +12,7 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: rgb(238, 159, 48);
+    height: 3rem;
     
   }
   
@@ -169,9 +170,18 @@ align-self: center;
 img {
   border-radius: 50%;
   height: 3rem;
-  width: rem;
+  width: 3rem;
 }
 
 .error {
   background-color: red;
 } 
+
+.signed-in-user {
+  
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.8rem;
+  
+}
+
