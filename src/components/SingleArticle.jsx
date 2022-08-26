@@ -10,6 +10,7 @@ import {
   patchVotes,
   postNewComment,
 } from "./api";
+import ErrorsPage from "./ErrorsPage";
 import ExpandableComments from "./ExpandableComments";
 import ExpandCommentsForm from "./ExpandCommentsForm";
 import ExpndDeleteBtn from "./ExpndDeleteBtn";
@@ -31,10 +32,13 @@ const SingleArticle = () => {
 
   useEffect(() => {
     getArticleById(article_id).then(({ article }) => {
+      setErr(null)
       const articleCopy = { ...article };
       articleCopy.created_at = article.created_at.substring(0, 10);
       setArticle(articleCopy);
       setVotes(articleCopy.votes);
+    }).catch((err) => {
+      setErr(err)
     });
     getCommnetsByArticleId(article_id).then(({ allComments }) => {
       setComments(allComments);
@@ -92,7 +96,8 @@ const SingleArticle = () => {
 
   }
 
-  
+
+  if (err && err.status === 404) return <ErrorsPage status={err.status} txt={err.txt} set={setErr}/>
 
   return (
     <section>
@@ -117,6 +122,8 @@ const SingleArticle = () => {
               rows="6"
               cols="50"
               value={newComment}
+              minLength="5"
+              required
             ></textarea>
           </label>
           <input type="submit" value="Post!" />
