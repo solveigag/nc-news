@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const getAllArticles = (topic, sortBy, orderBy) => {
 
  
@@ -7,8 +8,12 @@ export const getAllArticles = (topic, sortBy, orderBy) => {
     return fetch(
       `https://solveiga-nc-news-be.herokuapp.com/api/articles?topic=${topic}&sort_by=${sortBy}&order_by=${orderBy}`
     ).then((res) => {
+
+      if (!res.ok) {
+        return Promise.reject({status: res.status, txt: res.statusText})
+      }
       return res.json();
-    });
+    })
   } else {
     return fetch(`https://solveiga-nc-news-be.herokuapp.com/api/articles?sort_by=${sortBy}&order_by=${orderBy}`).then(
       (res) => {
@@ -30,6 +35,9 @@ export const getArticleById = (article_id) => {
   return fetch(
     `https://solveiga-nc-news-be.herokuapp.com/api/articles/${article_id}`
   ).then((res) => {
+    if (!res.ok) {
+      return Promise.reject({status: res.status, txt: res.statusText})
+    }
     return res.json();
   });
 };

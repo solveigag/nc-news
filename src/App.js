@@ -6,6 +6,7 @@ import './App.css';
 import ArticlesByCategory from './components/ArticlesByCategory';
 import { UserContext } from './contexts/User';
 import { useState } from 'react';
+import ErrorsPage from './components/ErrorsPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/articles/:topic" element={<ArticlesByCategory/>}/>
       <Route path="/article/:article_id" element={ <SingleArticle />}/>
       <Route path="/sign-in" element={ <ChangeUser/> }/>
+      <Route path="*" element={<ErrorsPage/>}/>
     </Routes>
   </UserContext.Provider>
   </BrowserRouter>
