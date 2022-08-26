@@ -33,7 +33,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <h1>NC News App</h1>
+      <h1>NC News</h1>
     </div>
   );
 };

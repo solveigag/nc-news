@@ -10,7 +10,7 @@ const ExpandableComments = ({children, comment_count}) => {
     };
 
     return <div>
-        <button onClick={toggleShowComments}>{showComments ? 'Hide Comments' : `Show ${comment_count} Comments`}</button>
+        <button className="comments-button" onClick={toggleShowComments}><span>{showComments ? 'Hide Comments' : `Show ${comment_count} Comments`}</span></button>
         {showComments ? children : null}
     </div>
 }

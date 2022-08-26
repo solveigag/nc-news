@@ -6,7 +6,7 @@ const SingleArticleCard = (
   handleVoteClick}
 ) => {
   return (
-    <section>
+    <section className="single-article-section">
       <h2>{article.title}</h2>
       <ul className="single-article-container">
         <p>Author: {article.author}</p>
