@@ -3,6 +3,7 @@ body {
   padding: 0;
   text-align: center;
   background-color:  rgb(255, 224, 181);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Nav bar start */
@@ -12,9 +13,10 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: rgb(238, 159, 48);
-    height: 3rem;
-    
+    height: 3rem;    
   }
+
+
   
   li {
     float: right;
@@ -44,6 +46,9 @@ body {
     gap: 10px;
     margin: auto;
     padding: 10px;
+    border: none;
+  
+  
 }
 
 /* Article card start */
@@ -86,6 +91,7 @@ body {
 
 .grid-container {
     background-color: rgb(238, 159, 48);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: grid;
     width: 250px;
     height: 300px;
@@ -96,6 +102,10 @@ body {
       "topic author "
       "votes comment"
       "date date";
+  }
+
+  .grid-container:hover {
+    opacity: 0.7;
   }
 
   /* Article card end */
