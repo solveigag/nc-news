@@ -4,10 +4,12 @@ body {
   text-align: center;
   background-color:  rgb(255, 224, 181);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-bottom: 15px;
 }
 
 h1 {
   color: rgb(230, 110, 5);
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -48,8 +50,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin: auto;
+    gap: 20px; 
     padding: 10px;
     border: none;
   
@@ -60,53 +61,75 @@ h1 {
 
 .grid-title {
     grid-area: title;
-    justify-content: center;
-    align-self: center;
+    margin: 0;
+    padding-top: 15px;
+    justify-content: center; 
+    align-self: center; 
+    height: 8vh;
+    color:  rgb(221, 130, 3);
+    
 }
 
 .grid-topic {
     grid-area: topic;
     justify-content: center; 
-    align-self: center;   
+    align-self: center; 
+    color: white;  
 }
 
 .grid-author {
     grid-area: author;
     justify-content: center;
     align-self: center;
+    color: white;  
 }
 
 .grid-comment {
     grid-area: comment;
     justify-content: center;
     align-self: center;
+    color: white;  
 }
 
 .grid-date {
     grid-area: date;
     justify-content: center;
     align-self: center;
+    color: white;  
 }
 
 .grid-votes {
   grid-area: votes;
   justify-content: center;
   align-self: center;
+  color: white;  
+}
+
+.grid-link {
+  grid-area: link;
+  justify-content: center;
+  align-self: center;
+  margin-top: 2px;
+   
 }
 
 .grid-container {
-    background-color: rgb(238, 159, 48);
+  
+    background-color: rgb(253, 193, 108);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: grid;
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 350px;
+     
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
     grid-template-areas: 
       "title title"
-      "topic author "
+      "author author"
+      "topic topic"
+      "date date"
       "votes comment"
-      "date date";
+      "link link"
   }
 
   .grid-container:hover {
@@ -124,10 +147,21 @@ h1 {
   flex-wrap: wrap;  
   justify-content: space-evenly;
   text-align: center;
+  font-size: 1.1rem;
+  margin: auto;
+  
 }
 
 .single-article-section {
   padding: 10px;
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  color: rgb(31, 27, 27);
 }
 
 .green-border {
@@ -214,8 +248,8 @@ img {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
-  padding: 20px;
-  width: 250px;
+  padding: 10px;
+  width: auto;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -244,4 +278,38 @@ img {
 .comments-button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.form {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  padding: 10px;
+}
+
+.main-colour-background {
+  background-color:  rgb(238, 159, 48);
+}
+
+.main-colour-text {
+  color: rgb(237, 145, 17);
+  font-weight: bold;
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    gap: 10px;
+    max-width: 200px;
+    min-width: 50px;
+    padding: 10px;
+    border: none;
+    background: white;
+    opacity: 0.7;
+    
 }

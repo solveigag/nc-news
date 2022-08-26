@@ -16,11 +16,13 @@ const ChangeUser = () => {
 
     
     
-    return <section>
-        <ul>{users.map((user)=>{
-            return <button onClick={()=> setLoggedInUser(user)} key={user.username}>
+    return <section >
+        <ul className="users">{users.map((user)=>{
+            return <button className="comments-button" onClick={()=> setLoggedInUser(user)} key={user.username}>
+                
                 <h2>{user.username}</h2>
-                <img src={user.avatar_url} alt={user.username}/>                
+                <img src={user.avatar_url} alt={user.username}/>
+                         
             </button>
         })}</ul>
     </section>

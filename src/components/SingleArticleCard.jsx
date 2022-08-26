@@ -6,9 +6,9 @@ const SingleArticleCard = (
   handleVoteClick}
 ) => {
   return (
-    <section className="single-article-section">
+    <section className="single-article-container">
       <h2>{article.title}</h2>
-      <ul className="single-article-container">
+      <ul className="single-article-section main-colour-text">
         <p>Author: {article.author}</p>
         <p>Published: {article.created_at}</p>
         <p>Topic: {article.topic}</p>
@@ -22,7 +22,7 @@ const SingleArticleCard = (
           👎
         </button>
       </ul>
-      <p>{article.body}</p>
+      <p className="single-article-section main-colour-background">{article.body}</p>
       
     </section>
   );

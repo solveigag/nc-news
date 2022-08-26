@@ -111,10 +111,10 @@ const SingleArticle = () => {
         />
       </div>
       <ExpandCommentsForm loggedInUser={loggedInUser}>
-      <div>
-        <form name={loggedInUser.username} onSubmit={handleSubmitComment}>
+      <div >
+        <form className="form" name={loggedInUser.username} onSubmit={handleSubmitComment}>
           <label htmlFor="comment-form">
-            Add a comment:
+            Add a comment:</label>
             <textarea
               onChange={handleNewComment}
               id="comment-form"
@@ -125,8 +125,8 @@ const SingleArticle = () => {
               minLength="5"
               required
             ></textarea>
-          </label>
-          <input type="submit" value="Post!" />
+          
+          <button className="comments-button" type="submit" value="Post!"><span>Post!</span></button>
         </form>
       </div>
       </ExpandCommentsForm>
