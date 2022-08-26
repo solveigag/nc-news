@@ -1,6 +1,10 @@
+
+
 const ExpndDeleteBtn = ({children, loggedInUser, author}) => {
-   console.log(children)
-    return <div>{loggedInUser.username === author ? children : null}</div>
+    
+    return <div>{loggedInUser.username === author ? children : null}</div> 
+// {loggedInUser.username === author ? true ? children[0] : children[1] :null}
+   
 }
 
 export default ExpndDeleteBtn;

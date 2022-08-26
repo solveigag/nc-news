@@ -15,6 +15,7 @@ import ExpandCommentsForm from "./ExpandCommentsForm";
 import ExpndDeleteBtn from "./ExpndDeleteBtn";
 import SingleArticleCard from "./SingleArticleCard";
 
+
 const SingleArticle = () => {
   const { loggedInUser } = useContext(UserContext);
   const { article_id } = useParams();
@@ -25,7 +26,8 @@ const SingleArticle = () => {
   const [disableDownVote, setDisableDownVote] = useState(false);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState();
-  const [deleted, setDeleted] = useState(false);
+
+ 
 
   useEffect(() => {
     getArticleById(article_id).then(({ article }) => {
@@ -66,10 +68,10 @@ const SingleArticle = () => {
     postNewComment(article_id, postComment)
       .then(() => {
         setErr(null);
-        setNewComment("");        
+        setNewComment("");
         getCommnetsByArticleId(article_id).then(({ allComments }) =>
-          setComments(allComments)
-        );
+        setComments(allComments)
+        );       
       })
       .catch((err) => {
         setErr("Something went wrong, please try again.");
@@ -78,11 +80,9 @@ const SingleArticle = () => {
   };
 
   const handleCommentDeletion = (comment_id) => {
-    setDeleted(true)
-    deleteComment(comment_id).then(() => {
-      alert("Deleted")
+
+    deleteComment(comment_id).then((res) => {   
       setErr(null)
-      setDeleted(false)
       getCommnetsByArticleId(article_id).then(({ allComments }) =>
           setComments(allComments)          
         );
@@ -107,7 +107,6 @@ const SingleArticle = () => {
       </div>
       <ExpandCommentsForm loggedInUser={loggedInUser}>
       <div>
-        <p className="error">{err ? `${err}` : null}</p>
         <form name={loggedInUser.username} onSubmit={handleSubmitComment}>
           <label htmlFor="comment-form">
             Add a comment:
@@ -124,11 +123,9 @@ const SingleArticle = () => {
         </form>
       </div>
       </ExpandCommentsForm>
-      
+      <p className="error">{err ? `${err}` : null}</p>
       <ExpandableComments comment_count={comments.length}>
         <div className="comments-parent-grid">
-        <p className="error">{err ? `${err}` : null}</p>
-        <p className="error">{deleted ? `Comment deleted` : null}</p>
           {comments.map((comment) => {
             return (<div key={comment.comment_id}>
               <AllCommentsByArticleId
