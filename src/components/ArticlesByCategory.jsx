@@ -16,7 +16,7 @@ const ArticlesByCategory = () => {
     });
   }, [topic, sortBy, orderBy]);
 
-  console.log(sortBy, orderBy, "In Articles")
+
   return (
     <div>
       <nav>

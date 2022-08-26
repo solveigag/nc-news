@@ -5,6 +5,7 @@ const AllCommentsByArticleId = ({comment}) => {
         <p className="comments-grid-date">Posted: {date}</p>
         <p className="comments-grid-votes">Votes: {comment.votes}</p>
         <p className="comments-grid-body">{comment.body}</p>
+        
     </section>
 }
 

@@ -67,7 +67,12 @@ export const postNewComment = (article_id, comment) => {
       `https://solveiga-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`, comment
     )
     .then((res) => {
-      console.log(res)
       return res;
     });
+}
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`https://solveiga-nc-news-be.herokuapp.com/api/comments/${comment_id}`).then((res) => {
+    return res
+  })
 }

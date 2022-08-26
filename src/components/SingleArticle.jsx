@@ -4,14 +4,17 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../contexts/User";
 import AllCommentsByArticleId from "./AllCommentsByArticleId";
 import {
+  deleteComment,
   getArticleById,
   getCommnetsByArticleId,
   patchVotes,
   postNewComment,
 } from "./api";
 import ExpandableComments from "./ExpandableComments";
-import ExpandableCommentsForm from "./ExpandableCommentsFom";
+import ExpandCommentsForm from "./ExpandCommentsForm";
+import ExpndDeleteBtn from "./ExpndDeleteBtn";
 import SingleArticleCard from "./SingleArticleCard";
+
 
 const SingleArticle = () => {
   const { loggedInUser } = useContext(UserContext);
@@ -23,6 +26,8 @@ const SingleArticle = () => {
   const [disableDownVote, setDisableDownVote] = useState(false);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState();
+
+ 
 
   useEffect(() => {
     getArticleById(article_id).then(({ article }) => {
@@ -63,16 +68,29 @@ const SingleArticle = () => {
     postNewComment(article_id, postComment)
       .then(() => {
         setErr(null);
-        setNewComment("");        
+        setNewComment("");
         getCommnetsByArticleId(article_id).then(({ allComments }) =>
-          setComments(allComments)
-        );
+        setComments(allComments)
+        );       
       })
       .catch((err) => {
         setErr("Something went wrong, please try again.");
       });
     
   };
+
+  const handleCommentDeletion = (comment_id) => {
+
+    deleteComment(comment_id).then((res) => {   
+      setErr(null)
+      getCommnetsByArticleId(article_id).then(({ allComments }) =>
+          setComments(allComments)          
+        );
+    }).catch((err) => {
+      setErr("Something went wrong, please try again.");
+    })
+
+  }
 
   
 
@@ -87,9 +105,8 @@ const SingleArticle = () => {
           handleVoteClick={handleVoteClick}
         />
       </div>
-      <ExpandableCommentsForm loggedInUser={loggedInUser}>
+      <ExpandCommentsForm loggedInUser={loggedInUser}>
       <div>
-        <p className="error">{err ? `${err}` : null}</p>
         <form name={loggedInUser.username} onSubmit={handleSubmitComment}>
           <label htmlFor="comment-form">
             Add a comment:
@@ -105,16 +122,21 @@ const SingleArticle = () => {
           <input type="submit" value="Post!" />
         </form>
       </div>
-      </ExpandableCommentsForm>
-      
+      </ExpandCommentsForm>
+      <p className="error">{err ? `${err}` : null}</p>
       <ExpandableComments comment_count={comments.length}>
         <div className="comments-parent-grid">
           {comments.map((comment) => {
-            return (
+            return (<div key={comment.comment_id}>
               <AllCommentsByArticleId
                 comment={comment}
-                key={comment.comment_id}
-              />
+                
+                loggedInUser={loggedInUser}
+              />              
+              <ExpndDeleteBtn loggedInUser={loggedInUser} author={comment.author} >
+              <button onClick={() => {handleCommentDeletion(comment.comment_id)}}>Delete</button>
+            </ExpndDeleteBtn>
+        </div>
             );
           })}
         </div>
