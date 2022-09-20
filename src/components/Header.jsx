@@ -7,23 +7,23 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="test">
       <nav>
         <ul className="nav_bar-container">
             <ExpndableUserIcon loggedInUser={loggedInUser}>
-            <li className="navbar__link ">
-            <img id="close"
+            <li id="no-hover" className="navbar__link ">
+            <img id="signed-in-use-icon"
               src={loggedInUser.avatar_url}
               alt={loggedInUser.username}
               title={loggedInUser.username}
-              className="signed-in-user"
+              className="navbar__link signed-in-user"
             />
           </li>
             </ExpndableUserIcon>
           
           <li>
             <Link to="/sign-in" className="navbar__link">
-              {loggedInUser.username ? "Sing Out" : "Sign In"}
+              {loggedInUser.username ? "Sign Out" : "Sign In"}
             </Link>
           </li>
           <li>
@@ -33,7 +33,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <h1>NC News</h1>
+      <h1>NORTH CODERS NEWS</h1>
     </div>
   );
 };

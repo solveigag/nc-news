@@ -100,7 +100,7 @@ const SingleArticle = () => {
   if (err && err.status === 404) return <ErrorsPage status={err.status} txt={err.txt} set={setErr}/>
 
   return (
-    <section>
+    <section className="single-article-parent-layout ">
       <div>
         <SingleArticleCard
           article={article}
@@ -111,16 +111,16 @@ const SingleArticle = () => {
         />
       </div>
       <ExpandCommentsForm loggedInUser={loggedInUser}>
-      <div >
+      <div className="comment-form-container">
         <form className="form" name={loggedInUser.username} onSubmit={handleSubmitComment}>
           <label htmlFor="comment-form">
             Add a comment:</label>
-            <textarea
+            <textarea className="form"
               onChange={handleNewComment}
               id="comment-form"
               name="comment-form"
               rows="6"
-              cols="50"
+              
               value={newComment}
               minLength="5"
               required
@@ -131,23 +131,25 @@ const SingleArticle = () => {
       </div>
       </ExpandCommentsForm>
       <p className="error">{err ? `${err}` : null}</p>
+      <div className="expand-comments-container">
       <ExpandableComments comment_count={comments.length}>
         <div className="comments-parent-grid">
           {comments.map((comment) => {
-            return (<div key={comment.comment_id}>
+            return (<div className="commentAndDelete" key={comment.comment_id}>
               <AllCommentsByArticleId
                 comment={comment}
                 
                 loggedInUser={loggedInUser}
               />              
               <ExpndDeleteBtn loggedInUser={loggedInUser} author={comment.author} >
-              <button onClick={() => {handleCommentDeletion(comment.comment_id)}}>Delete</button>
+              <button className="comments-button delete-btn-space" onClick={() => {handleCommentDeletion(comment.comment_id)}}><span>Delete</span></button>
             </ExpndDeleteBtn>
         </div>
             );
           })}
         </div>
       </ExpandableComments>
+      </div>
     </section>
   );
 };

@@ -27,9 +27,10 @@ const Queries = ({setSortBy, setOrderBy}) => {
   };
 
   return (
-    <div className="parent-grid">
-      <label htmlFor="categories">Categories:</label>
-      <select name="categories" onChange={handleCategory}>
+    <div className="queries-container">
+      <li className="dropdown">
+      <option className="dropbtn" href="void(0)" htmlFor="categories">Categories</option>
+      <div className="dropdown-content" name="categories" onClick={handleCategory}>
         <option key="all" value="">
           All
         </option>
@@ -40,9 +41,11 @@ const Queries = ({setSortBy, setOrderBy}) => {
             </option>
           );
         })}
-      </select>
-      <label htmlFor="sort_by">Sort By:</label>
-      <select name="sort_by" onChange={(e) => {setSortBy(e.target.value)}}>
+      </div>
+      </li>
+      <li className="dropdown">
+      <option className="dropbtn" href="void(0)" htmlFor="sort_by">Sort By</option>
+      <div className="dropdown-content" name="sort_by" onClick={(e) => {setSortBy(e.target.value)}}>
         
         <option value="created_at">Date</option>
         <option value="author">Author</option>
@@ -50,13 +53,16 @@ const Queries = ({setSortBy, setOrderBy}) => {
         <option value="topic">Topic</option>
         <option value="votes">Votes</option>
         <option value="comment_count">Comments</option>
-      </select>
-      <label htmlFor="order_by">Order By:</label>
-      <select name="order_by" onChange={(e) => {setOrderBy(e.target.value)}}>
+      </div>
+      </li>
+     <li className="dropdown">
+     <option className="dropbtn" href="void(0)" htmlFor="order_by">Order By</option>
+      <div className="dropdown-content" name="order_by" onClick={(e) => {setOrderBy(e.target.value)}}>
         
         <option value="desc">DESC</option>
         <option value="asc">ASC</option>
-      </select>
+      </div>
+     </li>
     </div>
   );
 };
