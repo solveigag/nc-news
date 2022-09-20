@@ -18,7 +18,7 @@ html {
 
 h1 {
   color: #00458b;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 2.5rem;
   font-weight: bold;
   padding-top: 3.5rem;
@@ -81,7 +81,6 @@ li {
   background-color: #00458b;
 }
 
-
 #signed-in-use-icon:hover {
   transform: rotate(360deg);
   -webkit-transition-duration: 1s;
@@ -140,7 +139,6 @@ li.dropdown {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-
   max-width: inherit;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -212,7 +210,6 @@ li.dropdown {
 .article-card-stats-link {
   grid-area: stats-link;
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   border-bottom-left-radius: 15px;
@@ -280,7 +277,6 @@ li.dropdown {
 
 .single-article-parent-layout {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
@@ -289,16 +285,14 @@ li.dropdown {
   width: 80vw;
 }
 
-
 .single-article-container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   font-family: Courier;
   border-radius: 5px;
   background: #f7f7f7;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.863);
   text-align: center;
-  /* opacity: 0.8; */
   margin-bottom: 20px;
 }
 
@@ -324,7 +318,7 @@ li.dropdown {
   color: gray;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
   margin-top: 5px;
@@ -336,17 +330,15 @@ li.dropdown {
 }
 
 .single-article-card-body {
-
   font-size: 15px;
   font-weight: 300;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-
 .single-article-card-stats-vote {
- display: flex;
- justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -357,14 +349,12 @@ li.dropdown {
   justify-content: center;
 }
 
-
 .single-article-card-stats-vote .stat {
   display: flex;
   align-items: center;
   justify-content: center;
   color: #00458b;
   padding: 10px;
- 
 }
 
 .single-article-card-stats-vote .value {
@@ -373,11 +363,10 @@ li.dropdown {
   text-transform: uppercase;
 }
 
-
 .like-button {
   border: none;
   border-radius: 50%;
-  height: 2rem; 
+  height: 2rem;
   width: 2rem;
   background-color: #00458b00;
   display: flex;
@@ -386,23 +375,12 @@ li.dropdown {
   font-size: large;
 }
 
-
-
-
-/* .Link {
-  text-decoration: none;
-  font-weight: bold;
-  color: aliceblue;
-} */
-
-/* Comment Layout */
-
 .comment-form-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .form {
@@ -412,11 +390,9 @@ li.dropdown {
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
   padding: 10px;
   border-radius: 15px;
   border: none;
- 
 }
 
 .form label {
@@ -428,7 +404,7 @@ li.dropdown {
 
 .form textarea {
   margin-bottom: 8px;
-  width: 80vw
+  width: 80vw;
 }
 
 .error {
@@ -450,7 +426,6 @@ li.dropdown {
   align-items: center;
 }
 
-
 .comments-parent-grid {
   display: flex;
   flex-direction: column;
@@ -460,7 +435,6 @@ li.dropdown {
   width: 80vw;
   font-size: 15px;
   font-weight: 300;
-  /* opacity: 0.8; */
 }
 
 .comments-grid-author {
@@ -503,9 +477,6 @@ li.dropdown {
     "author date votes"
     "body body body";
 }
-
-
-
 
 .comments-button {
   display: inline-block;
@@ -552,7 +523,6 @@ li.dropdown {
   margin-left: 10px;
 }
 
-
 .main-colour-background {
   background-color: rgb(238, 159, 48);
 }
@@ -572,14 +542,11 @@ li.dropdown {
   width: 80vw;
   padding: 10px;
   border-radius: 18px;
-  /* background: white;   */
   font-family: Courier;
   align-items: center;
-  
-  
 }
 
-#user-img { 
+#user-img {
   height: 5rem;
   width: 5rem;
   border-top-left-radius: 18px;
@@ -587,7 +554,7 @@ li.dropdown {
 }
 
 .user-button {
-  background-color: #99ddff;;
+  background-color: #99ddff;
   font-family: Courier;
   border-radius: 18px;
   border: none;
@@ -618,9 +585,9 @@ li.dropdown {
   .users {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     width: 70vw;
-    padding: 50px; 
+    padding: 50px;
     margin: auto;
     margin-top: 30px;
   }
@@ -632,16 +599,15 @@ li.dropdown {
     margin-top: 20px;
     display: flex;
   }
-  
 }
 
 @media only screen and (max-width: 899px) and (min-width: 601px) {
   .users {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     width: 80vw;
-    padding: 50px; 
+    padding: 50px;
     margin: auto;
     margin-top: 30px;
   }
@@ -656,7 +622,6 @@ li.dropdown {
 }
 
 @media only screen and (min-width: 900px) {
-
   .single-article-parent-layout {
     width: 60vw;
   }
@@ -666,15 +631,14 @@ li.dropdown {
   }
 
   .parent-grid {
-    width: 70vw;
+    width: 60vw;
   }
 
-.comments-parent-grid {
-  width: 60vw;
-}
+  .comments-parent-grid {
+    width: 60vw;
+  }
 
-.wide-screen {
-  width: 50vw;
-}
-  
+  .wide-screen {
+    width: 50vw;
+  }
 }
