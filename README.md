@@ -1,4 +1,4 @@
-# NC News Project
+# NC News Front End Project
 
 ## About the Project
 
